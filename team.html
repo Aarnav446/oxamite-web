@@ -12,10 +12,17 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body class="team-page">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
 
     <!-- BG -->
     <canvas id="three-canvas"></canvas>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-nav-overlay"></div>
 
     <!-- NAVBAR (FIXED GLASS) -->
     <nav class="navbar pill-nav glass-panel">
@@ -46,6 +53,14 @@
                 <!-- CARD -->
                 <div class="team-card">
                     <div class="team-photo">
+                        <img src="assets/team/anushree.jpg">
+                    </div>
+                    <h3 class="team-name">Anushree Upadhyay</h3>
+                    <p class="team-position">President Science & Technology</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-photo">
                         <img src="assets/team/aryan.jpg">
                     </div>
                     <h3 class="team-name">Aryan Arya</h3>
@@ -54,41 +69,34 @@
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/team/aarnav.jpg">
-                    </div>
-                    <h3 class="team-name">Aarnav Garg</h3>
-                    <p class="team-position">Head Website Design</p>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="assets/team/shivank.jpg">
-                    </div>
-                    <h3 class="team-name">Shivank Dan</h3>
-                    <p class="team-position">Head Website Design</p>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
                         <img src="assets/team/girik.jpg">
                     </div>
                     <h3 class="team-name">Girik Kashyap</h3>
-                    <p class="team-position">Head VFX Design</p>
+                    <p class="team-position">Event Management</p>
+                </div>
+
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/khyati.jpg">
+                    </div>
+                    <h3 class="team-name">Khyati</h3>
+                    <p class="team-position">Event Management</p>
                 </div>
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/team/dibyanshu.jpg">
+                        <img src="assets/team/navya.jpg">
                     </div>
-                    <h3 class="team-name">Dibyanshu Rout</h3>
-                    <p class="team-position">Head VFX Design</p>
+                    <h3 class="team-name">Navya Singh</h3>
+                    <p class="team-position">Event Management</p>
                 </div>
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/team/rishit.jpg">
+                        <img src="assets/team/shaurya.jpg">
                     </div>
-                    <h3 class="team-name">Rishit Jindal</h3>
+                    <h3 class="team-name">Shaurya Singh</h3>
                     <p class="team-position">Event Management</p>
                 </div>
 
@@ -107,18 +115,18 @@
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/team/teacher1.jpg">
+                        <img src="assets/team/asha.jpg">
                     </div>
-                    <h3 class="team-name">Mr. Sharma</h3>
-                    <p class="team-position">HOD Computer Science</p>
+                    <h3 class="team-name">Ms. Asha Menon</h3>
+                    <p class="team-position">PGT Artificial Intelligence</p>
                 </div>
 
                 <div class="team-card">
                     <div class="team-photo">
-                        <img src="assets/team/teacher2.jpg">
+                        <img src="assets/team/meetu.jpg">
                     </div>
-                    <h3 class="team-name">Ms. Verma</h3>
-                    <p class="team-position">IT Coordinator</p>
+                    <h3 class="team-name">Ms. Meetu Tripathi </h3>
+                    <p class="team-position">PGT Computer Science</p>
                 </div>
 
             </div>
@@ -148,7 +156,7 @@
             <!-- Social Icons -->
             <div class="footer-section social-links">
                 <div class="footer-socials">
-                    <a href="#" class="social-btn btn-ripple" title="Instagram">
+                    <a href="https://www.instagram.com/oxamite.bbpsnd/" class="social-btn btn-ripple" title="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-instagram">
@@ -157,7 +165,7 @@
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    <a href="#" class="social-btn btn-ripple" title="Discord">
+                    <a href="https://discord.gg/aaFrkxGzQq" class="social-btn btn-ripple" title="Discord">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-discord">
@@ -186,6 +194,17 @@
         </div>
     </footer>
 
+    <!-- Scripts: CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Project Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/three-bg.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

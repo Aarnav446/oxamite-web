@@ -1,88 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OXAMITE V5.0 | Cosmic Bytes</title>
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div id="bg-grid-container"></div>
-    <div class="bg-noise"></div>
+<body class="home-page">
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Three.js Background Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-nav-overlay"></div>
 
     <!-- Navigation -->
-    <nav>
-        <a href="index.html" class="nav-logo text-glow">OXAMITE V5.0</a>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="navbar sticky-nav glass-panel">
+        <div class="nav-container">
+            <h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1>
+            
+            <!-- Hamburger Menu -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
     </nav>
 
-    <main>
+    <!-- Main Content Wrapper for Page Transitions -->
+    <main class="page-transition-wrapper">
+        
         <!-- Hero Section -->
-        <section class="hero reveal">
-            <h1 class="text-gradient">Cosmic Bytes</h1>
-            <p class="subtitle text-glow">Encoding the Infinite</p>
-            <div class="cta-buttons">
-                <a href="events.html" class="btn btn-primary">Explore Events</a>
-                <a href="#about" class="btn btn-outline" style="margin-left: 15px;">Discover More</a>
-            </div>
-            
-            <!-- Countdown Timer -->
-            <div class="countdown-container reveal" style="transition-delay: 0.2s;">
-                <div class="time-box">
-                    <span id="days">00</span>
-                    <span>Days</span>
-                </div>
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <span>Hours</span>
-                </div>
-                <div class="time-box">
-                    <span id="mins">00</span>
-                    <span>Minutes</span>
-                </div>
-                <div class="time-box">
-                    <span id="secs">00</span>
-                    <span>Seconds</span>
+        <section class="hero min-h-screen flex-center">
+            <div class="hero-content text-center stagger-anim">
+                <h2 class="hero-title glitch" data-text="OXAMITE V5.0">OXAMITE V5.0</h2>
+                <p class="hero-subtitle">Cosmic Bytes — Encoding the Infinite</p>
+                <div class="hero-actions mt-4">
+                    <button class="btn btn-primary btn-ripple" onclick="location.href='events.html'">
+                        <span>Explore Events</span>
+                    </button>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="section-container reveal">
-            <h2 class="section-title text-gradient">About OXAMITE</h2>
-            <div class="glass-card about">
-                <p>Welcome to <strong>OXAMITE V5.0</strong>, the ultimate interstellar IT symposium where technology meets the cosmos. Embark on a journey through digital galaxies, decipher cosmic algorithms, and conquer the unknown in a series of mind-bending tech challenges.</p>
-                <br>
-                <p>Join us on <strong>10 July 2026</strong> as we encode the infinite and push the boundaries of innovation. Whether you're a coder, a designer, or a tech visionary, the universe of Oxamite awaits your brilliance.</p>
+        <section class="about section-padding">
+            <div class="container fade-up-anim">
+                <div class="glass-card about-card text-center">
+                    <h2 class="section-title">About the Mission</h2>
+                    <p class="section-desc">
+                        OXAMITE V5.0 is an inter-school IT fest focused on innovation,
+                        coding, and futuristic technologies inspired by the cosmos.
+                        We provide a platform for students to explore their creativity,
+                        problem-solving skills, and push the boundaries of modern tech.
+                    </p>
+                </div>
             </div>
         </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown section-padding fade-up-anim">
+            <div class="container text-center">
+                <h2 class="section-title">Initiation In</h2>
+                <div id="timer" class="timer-grid mt-3">
+                    <div class="timer-box glass-card"><span id="days">00</span><p>Days</p></div>
+                    <div class="timer-box glass-card"><span id="hours">00</span><p>Hours</p></div>
+                    <div class="timer-box glass-card"><span id="minutes">00</span><p>Minutes</p></div>
+                    <div class="timer-box glass-card"><span id="seconds">00</span><p>Seconds</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Section -->
+        <section class="highlights section-padding">
+            <div class="container">
+                <h2 class="section-title text-center fade-up-anim">Event Highlights</h2>
+                <div class="highlights-grid mt-4">
+                    <!-- Highlight 1 -->
+                    <div class="highlight-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
+                        <div class="card-icon">💻</div>
+                        <h3>Coding Events</h3>
+                        <p>Engage in algorithmic battles and hackathons designed to test your logic and speed.</p>
+                    </div>
+                    <!-- Highlight 2 -->
+                    <div class="highlight-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.3" style="transition-delay: 100ms;">
+                        <div class="card-icon">🚀</div>
+                        <h3>Space Challenges</h3>
+                        <p>Tackle problems inspired by real-world astrophysics, satellite logic, and orbital mechanics.</p>
+                    </div>
+                    <!-- Highlight 3 -->
+                    <div class="highlight-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.3" style="transition-delay: 200ms;">
+                        <div class="card-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>Showcase out-of-the-box tech models, AI applications, and groundbreaking hardware.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 OXAMITE V5.0. Designed for the stars.</p>
+    <footer class="footer glass-panel">
+        <p>&copy; 2026 OXAMITE V5.0 | Cosmic Bytes</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/bg-grid.js"></script>
+    <!-- Scripts: CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Vanilla Tilt for 3D card tilt effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Project Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/three-bg.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

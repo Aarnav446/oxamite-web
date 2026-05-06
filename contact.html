@@ -1,98 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - OXAMITE V5.0 | Cosmic Bytes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | OXAMITE V5.0</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div id="bg-grid-container"></div>
-    <div class="bg-noise"></div>
+<body class="contact-page">
+    
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
 
-    <nav>
-        <a href="index.html" class="nav-logo text-glow">OXAMITE V5.0</a>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <canvas id="three-canvas"></canvas>
+    <div class="mobile-nav-overlay"></div>
+
+    <nav class="navbar sticky-nav glass-panel">
+        <div class="nav-container">
+            <h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
     </nav>
 
-    <main>
-        <section class="section-container">
-            <h2 class="section-title text-gradient reveal">Establish Contact</h2>
-            
-            <div class="contact-grid">
-                <!-- Contact Info Section -->
-                <div class="glass-card reveal">
-                    <div class="contact-info-section">
-                        <h3>Teacher In-Charges</h3>
-                        <div class="contact-person">
-                            <div class="name">Mr. Alan Turing</div>
-                            <div class="role">Head of IT Department</div>
-                            <div class="phone">+91 98765 11111</div>
-                        </div>
-                        <div class="contact-person">
-                            <div class="name">Ms. Ada Lovelace</div>
-                            <div class="role">Event Coordinator</div>
-                            <div class="phone">+91 98765 22222</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-info-section" style="margin-top: 3rem;">
-                        <h3>Student In-Charges</h3>
-                        <div class="contact-person">
-                            <div class="name">Alex Voyager</div>
-                            <div class="role">President, IT Club</div>
-                            <div class="phone">+91 98765 43210</div>
-                        </div>
-                        <div class="contact-person">
-                            <div class="name">Sarah Nebula</div>
-                            <div class="role">Vice President, IT Club</div>
-                            <div class="phone">+91 87654 32109</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form Section -->
-                <div class="glass-card reveal" style="transition-delay: 0.2s;">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-glow);">Send a Transmission</h3>
-                    <form class="contact-form" action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Send Message</button>
-                    </form>
-                </div>
+    <main class="page-transition-wrapper">
+        <section class="contact-hero section-padding text-center">
+            <div class="container">
+                <h2 class="section-title fade-up-anim" style="margin-top: 4rem;">Establish Contact</h2>
+                <p class="section-desc fade-up-anim">Reach out across the stars for queries and registrations.</p>
             </div>
         </section>
+
+        <section class="contact-content section-padding pt-0">
+            <div class="container contact-grid">
+                
+                <!-- Contact Info Left Column -->
+                <div class="contact-info fade-up-anim">
+                    <h3 class="mb-3" style="color: var(--color-primary); font-size: 1.8rem; margin-bottom: 1.5rem;">Transmission Channels</h3>
+                    
+                    <div class="glass-card mb-4" style="margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: white;">Teacher Incharges</h4>
+                        <div class="contact-person">
+                            <p><strong>Mr. Sharma</strong> (HOD CS)</p>
+                            <div class="contact-actions">
+                                <span class="phone-number" id="phone1">+91 98765 11111</span>
+                                <button class="action-btn copy-btn" onclick="copyToClipboard('phone1', this)" title="Copy">📋</button>
+                                <a href="https://wa.me/919876511111" target="_blank" class="action-btn wa-btn" title="WhatsApp">💬</a>
+                            </div>
+                        </div>
+                        <div class="contact-person" style="margin-top: 1rem;">
+                            <p><strong>Ms. Verma</strong> (IT Coord)</p>
+                            <div class="contact-actions">
+                                <span class="phone-number" id="phone2">+91 98765 22222</span>
+                                <button class="action-btn copy-btn" onclick="copyToClipboard('phone2', this)" title="Copy">📋</button>
+                                <a href="https://wa.me/919876522222" target="_blank" class="action-btn wa-btn" title="WhatsApp">💬</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h4 style="margin-bottom: 1rem; color: white;">Student Incharges</h4>
+                        <div class="contact-person">
+                            <p><strong>Alex Voyager</strong> (President)</p>
+                            <div class="contact-actions">
+                                <span class="phone-number" id="phone3">+91 98765 43210</span>
+                                <button class="action-btn copy-btn" onclick="copyToClipboard('phone3', this)" title="Copy">📋</button>
+                                <a href="https://wa.me/919876543210" target="_blank" class="action-btn wa-btn" title="WhatsApp">💬</a>
+                            </div>
+                        </div>
+                        <div class="contact-person" style="margin-top: 1rem;">
+                            <p><strong>Sam Nebula</strong> (VP)</p>
+                            <div class="contact-actions">
+                                <span class="phone-number" id="phone4">+91 98765 43211</span>
+                                <button class="action-btn copy-btn" onclick="copyToClipboard('phone4', this)" title="Copy">📋</button>
+                                <a href="https://wa.me/919876543211" target="_blank" class="action-btn wa-btn" title="WhatsApp">💬</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Right Column -->
+                <div class="contact-form-container fade-up-anim" style="transition-delay: 200ms;">
+                    <form class="glass-card contact-form" onsubmit="event.preventDefault(); alert('Message transmitted successfully!');">
+                        <h3 class="text-center" style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.8rem;">Send a Message</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Name / Call Sign</label>
+                            <input type="text" id="name" required placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Frequency</label>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Transmission Data</label>
+                            <textarea id="message" rows="5" required placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-ripple w-100" style="width: 100%; margin-top: 1rem;">Transmit</button>
+                    </form>
+                </div>
+                
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 OXAMITE V5.0. Designed for the stars.</p>
+    <footer class="footer glass-panel">
+        <p>Bal Bharati Public School, Noida</p>
+        <p style="font-size: 0.9rem; color: var(--color-primary); margin-top: 0.5rem;">oxamite@bbpsnoida.edu.in</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #777;">&copy; 2026 OXAMITE V5.0 | Cosmic Bytes</p>
     </footer>
 
-    <script src="js/bg-grid.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="js/cursor.js"></script>
+    <script src="js/three-bg.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function copyToClipboard(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "✅";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
 </body>
 </html>

@@ -26,10 +26,10 @@
     <div class="mobile-nav-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="navbar sticky-nav glass-panel">
+    <nav class="navbar sticky-nav glass-panel pill-nav">
         <div class="nav-container">
-            <h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1>
             
+            <!-- Hamburger Menu -->
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -38,7 +38,8 @@
 
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li class="nav-logo-item"><h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -59,102 +60,122 @@
                     <!-- Event Cards will be generated via JS to keep HTML clean, or hardcoded. Let's hardcode for SEO/Simplicity -->
                     
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="event-image-placeholder">🌌</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/galaxy-quest.jpg" alt="Galaxy Quest" class="event-image">
+                        </div>
                         <h3 class="event-title">Galaxy Quest</h3>
                         <p class="event-desc">An intergalactic treasure hunt solving cryptographic puzzles.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Galaxy Quest', 'Decode ciphered messages hidden across various tech stacks to find the ultimate prize.', 'Online', '1-2')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Galaxy Quest', 'Decode ciphered messages hidden across various tech stacks to find the ultimate prize.', 'Online', '1-2')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 100ms;">
-                        <div class="event-image-placeholder">🎨</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/nova-imprints.jpg" alt="Nova Imprints" class="event-image">
+                        </div>
                         <h3 class="event-title">Nova Imprints</h3>
                         <p class="event-desc">Digital design competition to create futuristic UI/UX concepts.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Nova Imprints', 'Design an out-of-this-world mobile app interface based on the provided prompt.', 'Offline', '1')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Nova Imprints', 'Design an out-of-this-world mobile app interface based on the provided prompt.', 'Offline', '1')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 200ms;">
-                        <div class="event-image-placeholder">📱</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/appforge.jpg" alt="AppForge" class="event-image">
+                        </div>
                         <h3 class="event-title">AppForge</h3>
                         <p class="event-desc">Hackathon to build innovative cross-platform applications.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('AppForge', 'Develop a functional application solving a real-world problem within 24 hours.', 'Hybrid', '2-4')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('AppForge', 'Develop a functional application solving a real-world problem within 24 hours.', 'Hybrid', '2-4')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="event-image-placeholder">✂️</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/cosmic-cuts.jpg" alt="Cosmic Cuts" class="event-image">
+                        </div>
                         <h3 class="event-title">Cosmic Cuts</h3>
                         <p class="event-desc">Video editing and motion graphics showdown.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Cosmic Cuts', 'Edit raw footage into a cinematic masterpiece using dynamic transitions and effects.', 'Online', '1')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Cosmic Cuts', 'Edit raw footage into a cinematic masterpiece using dynamic transitions and effects.', 'Online', '1')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 100ms;">
-                        <div class="event-image-placeholder">🐛</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/errorite.jpg" alt="Errorite" class="event-image">
+                        </div>
                         <h3 class="event-title">Errorite</h3>
                         <p class="event-desc">Speed debugging challenge. Find and fix the bugs before time runs out.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Errorite', 'You will be given buggy C++/Python code. Fix the errors to make the code compile and pass all test cases.', 'Offline', '1-2')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Errorite', 'You will be given buggy C++/Python code. Fix the errors to make the code compile and pass all test cases.', 'Offline', '1-2')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 200ms;">
-                        <div class="event-image-placeholder">⌨️</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/devspace.jpg" alt="DevSpace" class="event-image">
+                        </div>
                         <h3 class="event-title">DevSpace</h3>
                         <p class="event-desc">Competitive programming battle for top algorithmic thinkers.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('DevSpace', 'Solve 5 complex algorithmic problems within a set timeframe. Fastest accurate submissions win.', 'Offline', '1')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('DevSpace', 'Solve 5 complex algorithmic problems within a set timeframe. Fastest accurate submissions win.', 'Offline', '1')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="event-image-placeholder">🔐</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/dekrypt.jpg" alt="DeKrypt" class="event-image">
+                        </div>
                         <h3 class="event-title">DeKrypt</h3>
                         <p class="event-desc">Cybersecurity and ethical hacking Capture The Flag (CTF).</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('DeKrypt', 'Breach servers, reverse engineer software, and find the hidden flags.', 'Hybrid', '2-3')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('DeKrypt', 'Breach servers, reverse engineer software, and find the hidden flags.', 'Hybrid', '2-3')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 100ms;">
-                        <div class="event-image-placeholder">🌐</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/webgig.jpg" alt="WebGig" class="event-image">
+                        </div>
                         <h3 class="event-title">WebGig</h3>
                         <p class="event-desc">Frontend web development competition. Design a stunning landing page.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('WebGig', 'Build a fully responsive and interactive web page based on an on-the-spot theme.', 'Offline', '1-2')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('WebGig', 'Build a fully responsive and interactive web page based on an on-the-spot theme.', 'Offline', '1-2')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2" style="transition-delay: 200ms;">
-                        <div class="event-image-placeholder">🤖</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/event-horizon.jpg" alt="Event Horizon" class="event-image">
+                        </div>
                         <h3 class="event-title">Event Horizon</h3>
                         <p class="event-desc">Robotics showcase and autonomous navigation challenge.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Event Horizon', 'Build and program an autonomous robot to navigate a complex maze.', 'Offline', '2-4')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('Event Horizon', 'Build and program an autonomous robot to navigate a complex maze.', 'Offline', '2-4')">Rulebook</button>
                         </div>
                     </div>
 
                     <div class="event-card glass-card tilt-card fade-up-anim" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
-                        <div class="event-image-placeholder">🚙</div>
+                        <div class="event-image-wrapper">
+                            <img src="images/roverx.jpg" alt="RoverX" class="event-image">
+                        </div>
                         <h3 class="event-title">RoverX</h3>
                         <p class="event-desc">Design and race RC rovers over a simulated Martian terrain.</p>
                         <div class="event-actions">
                             <button class="btn btn-primary btn-sm btn-ripple">Register</button>
-                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('RoverX', 'Navigate your custom-built RC rover through an obstacle course mimicking Mars surface.', 'Offline', '2-3')">View Details</button>
+                            <button class="btn btn-secondary btn-sm btn-ripple" onclick="openModal('RoverX', 'Navigate your custom-built RC rover through an obstacle course mimicking Mars surface.', 'Offline', '2-3')">Rulebook</button>
                         </div>
                     </div>
 

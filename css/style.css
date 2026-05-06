@@ -1,9 +1,9 @@
 /* Base Styles & Variables */
 :root {
-  --bg-color: #030014;
+  --bg-color: #000000;
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0b8;
-  --primary-glow: #00f0ff;
+  --primary-glow: #00d4ff;
   --secondary-glow: #8a2be2;
   --accent-color: #ff007f;
   
@@ -29,15 +29,66 @@ body {
   line-height: 1.6;
 }
 
-/* Background Canvas */
-#particles-canvas {
+/* Interactive Grid Background */
+#bg-grid-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  display: grid;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
   pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Global mouse glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(800px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(0, 212, 255, 0.08), transparent 40%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+.bg-tile {
+  background: rgba(0, 212, 255, 0.01);
+  border: 1px solid rgba(0, 212, 255, 0.03);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
+}
+
+.bg-tile:hover {
+  background: rgba(0, 212, 255, 0.05);
+  border-color: rgba(0, 212, 255, 0.2);
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Ambient Pulse Animation */
+@keyframes softPulse {
+  0%, 100% { background: rgba(0, 212, 255, 0.01); }
+  50% { background: rgba(0, 212, 255, 0.03); border-color: rgba(0, 212, 255, 0.1); }
+}
+
+.bg-tile.pulse {
+  animation: softPulse 4s infinite;
 }
 
 /* Typography */

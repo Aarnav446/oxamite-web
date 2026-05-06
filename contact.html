@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - OXAMITE V5.0 | Cosmic Bytes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav>
+        <a href="index.html" class="nav-logo text-glow">OXAMITE V5.0</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="section-container">
+            <h2 class="section-title text-gradient reveal">Establish Contact</h2>
+            
+            <div class="contact-grid">
+                <!-- Contact Info Section -->
+                <div class="glass-card reveal">
+                    <div class="contact-info-section">
+                        <h3>Teacher In-Charges</h3>
+                        <div class="contact-person">
+                            <div class="name">Mr. Alan Turing</div>
+                            <div class="role">Head of IT Department</div>
+                            <div class="phone">+91 98765 11111</div>
+                        </div>
+                        <div class="contact-person">
+                            <div class="name">Ms. Ada Lovelace</div>
+                            <div class="role">Event Coordinator</div>
+                            <div class="phone">+91 98765 22222</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-section" style="margin-top: 3rem;">
+                        <h3>Student In-Charges</h3>
+                        <div class="contact-person">
+                            <div class="name">Alex Voyager</div>
+                            <div class="role">President, IT Club</div>
+                            <div class="phone">+91 98765 43210</div>
+                        </div>
+                        <div class="contact-person">
+                            <div class="name">Sarah Nebula</div>
+                            <div class="role">Vice President, IT Club</div>
+                            <div class="phone">+91 87654 32109</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Section -->
+                <div class="glass-card reveal" style="transition-delay: 0.2s;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-glow);">Send a Transmission</h3>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OXAMITE V5.0. Designed for the stars.</p>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

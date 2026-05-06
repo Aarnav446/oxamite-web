@@ -1,235 +1,77 @@
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof THREE === 'undefined') {
-        console.warn("Three.js is not loaded.");
-        return;
-    }
+// Scene
+const scene = new THREE.Scene();
 
-    const canvas = document.getElementById("three-canvas");
-    if (!canvas) return;
+// Camera
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.z = 5;
 
-    // Performance/Mobile check
-    const isMobile = window.innerWidth <= 768;
-    const particleCount = isMobile ? 500 : 1000;
-    const tileCount = isMobile ? 5 : 15;
+// Renderer
+const canvas = document.getElementById("three-canvas");
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  alpha: true,
+  antialias: true
+});
 
-    // 1. Scene Setup
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x050505, 0.002);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.z = 1000;
+// ⭐ Stars
+const starGeometry = new THREE.BufferGeometry();
+const starCount = 3000;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !isMobile });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // limit pixel ratio for performance
-    renderer.setSize(window.innerWidth, window.innerHeight);
+const positions = new Float32Array(starCount * 3);
 
-    // 2. Stars (Particles) - Layer 1 (Small, slow)
-    const starGeometry1 = new THREE.BufferGeometry();
-    const starPositions1 = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount * 3; i++) {
-        starPositions1[i] = (Math.random() - 0.5) * 2000;
-    }
-    starGeometry1.setAttribute('position', new THREE.BufferAttribute(starPositions1, 3));
+for (let i = 0; i < starCount * 3; i++) {
+  positions[i] = (Math.random() - 0.5) * 2000;
+}
 
-    // Layer 2 (Large, fast)
-    const starGeometry2 = new THREE.BufferGeometry();
-    const starPositions2 = new Float32Array((particleCount / 2) * 3);
-    for (let i = 0; i < (particleCount / 2) * 3; i++) {
-        starPositions2[i] = (Math.random() - 0.5) * 2000;
-    }
-    starGeometry2.setAttribute('position', new THREE.BufferAttribute(starPositions2, 3));
+starGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(positions, 3)
+);
 
-    const createCircleTexture = () => {
-        const matCanvas = document.createElement('canvas');
-        matCanvas.width = 32;
-        matCanvas.height = 32;
-        const ctx = matCanvas.getContext('2d');
-        ctx.beginPath();
-        ctx.arc(16, 16, 14, 0, Math.PI * 2);
-        ctx.fillStyle = '#ffffff';
-        ctx.fill();
-        return new THREE.CanvasTexture(matCanvas);
-    };
+const starMaterial = new THREE.PointsMaterial({
+  color: 0x00d4ff,
+  size: 0.7,
+});
 
-    const texture = createCircleTexture();
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
 
-    const starMaterial1 = new THREE.PointsMaterial({
-        size: isMobile ? 1 : 1.5,
-        color: 0x8B5CF6, // Purple stars
-        map: texture,
-        transparent: true,
-        opacity: 0.6,
-        alphaTest: 0.1,
-        blending: THREE.AdditiveBlending
-    });
+// 🎥 Mouse movement effect
+let mouseX = 0;
+let mouseY = 0;
 
-    const starMaterial2 = new THREE.PointsMaterial({
-        size: isMobile ? 2.5 : 3.5,
-        color: 0xA855F7, // Lighter purple stars
-        map: texture,
-        transparent: true,
-        opacity: 0.9,
-        alphaTest: 0.1,
-        blending: THREE.AdditiveBlending
-    });
+document.addEventListener("mousemove", (event) => {
+  mouseX = (event.clientX - window.innerWidth / 2) * 0.0005;
+  mouseY = (event.clientY - window.innerHeight / 2) * 0.0005;
+});
 
-    const starSystem1 = new THREE.Points(starGeometry1, starMaterial1);
-    const starSystem2 = new THREE.Points(starGeometry2, starMaterial2);
-    
-    scene.add(starSystem1);
-    scene.add(starSystem2);
+// 🔄 Animation
+function animate() {
+  requestAnimationFrame(animate);
 
-    // 3. Floating Glowing Tiles
-    const tiles = [];
-    const tileGeometry = new THREE.PlaneGeometry(50, 50);
-    
-    // Create glowing material with purple edge
-    const tileMaterial = new THREE.MeshBasicMaterial({
-        color: 0x8B5CF6, // Purple tiles
-        transparent: true,
-        opacity: 0.15,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
-        wireframe: true // Looks futuristic
-    });
+  stars.rotation.y += 0.0005;
 
-    for (let i = 0; i < tileCount; i++) {
-        const tile = new THREE.Mesh(tileGeometry, tileMaterial);
-        
-        // Random positions
-        tile.position.x = (Math.random() - 0.5) * 1500;
-        tile.position.y = (Math.random() - 0.5) * 1500;
-        tile.position.z = (Math.random() - 0.5) * 800; // between -400 and 400
-        
-        // Random rotations
-        tile.rotation.x = Math.random() * Math.PI;
-        tile.rotation.y = Math.random() * Math.PI;
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y) * 0.05;
 
-        // Custom animation properties
-        tile.userData = {
-            rotSpeedX: (Math.random() - 0.5) * 0.01,
-            rotSpeedY: (Math.random() - 0.5) * 0.01,
-            floatSpeed: (Math.random() * 0.02) + 0.01,
-            startY: tile.position.y,
-            timeOffset: Math.random() * 100
-        };
+  camera.lookAt(scene.position);
 
-        tiles.push(tile);
-        scene.add(tile);
-    }
+  renderer.render(scene, camera);
+}
 
-    // 3.5. Floating Planets/Spheres
-    const planets = [];
-    const planetCount = isMobile ? 3 : 6;
+animate();
 
-    for (let i = 0; i < planetCount; i++) {
-        // Create sphere geometry with varying sizes
-        const radius = Math.random() * 30 + 20; // 20-50 radius
-        const planetGeometry = new THREE.SphereGeometry(radius, 16, 16);
-
-        // Create materials with different colors for variety
-        const planetColors = [0x8B5CF6, 0x6366F1, 0xEC4899, 0xF59E0B, 0x10B981, 0xEF4444];
-        const planetMaterial = new THREE.MeshBasicMaterial({
-            color: planetColors[i % planetColors.length],
-            transparent: true,
-            opacity: 0.3,
-            wireframe: false // Solid planets
-        });
-
-        const planet = new THREE.Mesh(planetGeometry, planetMaterial);
-
-        // Position planets at different depths
-        planet.position.x = (Math.random() - 0.5) * 1800;
-        planet.position.y = (Math.random() - 0.5) * 1800;
-        planet.position.z = (Math.random() - 0.5) * 1000; // between -500 and 500
-
-        // Custom animation properties for planets
-        planet.userData = {
-            rotSpeedX: (Math.random() - 0.5) * 0.005,
-            rotSpeedY: (Math.random() - 0.5) * 0.005,
-            orbitSpeed: (Math.random() - 0.5) * 0.002,
-            orbitRadius: Math.random() * 200 + 100,
-            orbitCenterX: planet.position.x,
-            orbitCenterY: planet.position.y,
-            timeOffset: Math.random() * 100
-        };
-
-        planets.push(planet);
-        scene.add(planet);
-    }
-
-    // 4. Parallax & Mouse Interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    document.addEventListener('mousemove', (event) => {
-        // Normalize mouse coordinates to -1 to 1 range, scaled slightly
-        mouseX = (event.clientX - windowHalfX) * 0.5;
-        mouseY = (event.clientY - windowHalfY) * 0.5;
-    });
-
-    // 5. Animation Loop
-    const clock = new THREE.Clock();
-
-    const animate = () => {
-        requestAnimationFrame(animate);
-
-        const elapsedTime = clock.getElapsedTime();
-
-        // Parallax easing - Increased depth
-        targetX = mouseX * 0.8;
-        targetY = mouseY * 0.8;
-        
-        camera.position.x += (targetX - camera.position.x) * 0.05;
-        camera.position.y += (-targetY - camera.position.y) * 0.05;
-        camera.lookAt(scene.position);
-
-        // Slowly rotate star systems at different speeds for depth
-        starSystem1.rotation.y += 0.0005;
-        starSystem1.rotation.x += 0.0002;
-        
-        starSystem2.rotation.y += 0.001;
-        starSystem2.rotation.x += 0.0005;
-
-        // Animate floating tiles
-        tiles.forEach(tile => {
-            tile.rotation.x += tile.userData.rotSpeedX;
-            tile.rotation.y += tile.userData.rotSpeedY;
-            
-            // Hover up and down
-            tile.position.y = tile.userData.startY + Math.sin(elapsedTime * tile.userData.floatSpeed + tile.userData.timeOffset) * 50;
-        });
-
-        // Animate floating planets
-        planets.forEach((planet, index) => {
-            // Rotate planets on their own axis
-            planet.rotation.x += planet.userData.rotSpeedX;
-            planet.rotation.y += planet.userData.rotSpeedY;
-
-            // Create orbital motion around their center point
-            const orbitAngle = elapsedTime * planet.userData.orbitSpeed + planet.userData.timeOffset;
-            planet.position.x = planet.userData.orbitCenterX + Math.cos(orbitAngle) * planet.userData.orbitRadius;
-            planet.position.y = planet.userData.orbitCenterY + Math.sin(orbitAngle) * planet.userData.orbitRadius;
-        });
-
-        renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // 6. Handle Resize
-    window.addEventListener('resize', () => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(width, height);
-    });
+// 📱 Responsive
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });

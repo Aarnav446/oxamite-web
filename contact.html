@@ -236,24 +236,25 @@
                 <!-- Contact Form Right Column -->
                 <div class="contact-form-container fade-up-anim" style="transition-delay: 200ms;">
                     <form class="glass-card contact-form"
-                        onsubmit="event.preventDefault(); alert('Message transmitted successfully!');">
+                        action="https://formsubmit.co/aarnavga3@gmail.com"
+                        method="POST">
                         <h3 class="text-center"
                             style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.8rem;">Send a
                             Message</h3>
 
                         <div class="form-group">
                             <label for="name">Name / Call Sign</label>
-                            <input type="text" id="name" required placeholder="Enter your name">
+                            <input type="text" name="name" id="name" required placeholder="Enter your name">
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email Frequency</label>
-                            <input type="email" id="email" required placeholder="Enter your email">
+                            <input type="email" name="email" id="email" required placeholder="Enter your email">
                         </div>
 
                         <div class="form-group">
                             <label for="message">Transmission Data</label>
-                            <textarea id="message" rows="5" required placeholder="Enter your message"></textarea>
+                            <textarea name="message" id="message" rows="5" required placeholder="Enter your message"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-ripple w-100"

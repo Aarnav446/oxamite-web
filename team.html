@@ -1,138 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team | OXAMITE V5.0</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="team-page">
-    
-    <div class="cursor-glow"></div>
-    <div class="cursor-dot"></div>
 
+<body>
+
+    <!-- BG -->
     <canvas id="three-canvas"></canvas>
-    <div class="mobile-nav-overlay"></div>
 
-    <nav class="navbar sticky-nav glass-panel pill-nav">
+    <!-- NAVBAR (FIXED GLASS) -->
+    <nav class="navbar pill-nav glass-panel">
         <div class="nav-container">
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li class="nav-logo-item"><h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1></li>
-                <li><a href="team.html">Team</a></li>
+
+                <li class="nav-logo-item">
+                    <h1 class="logo">OXAMITE <span class="accent">V5.0</span></h1>
+                </li>
+
+                <li><a href="team.html" class="active">Team</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="page-transition-wrapper">
-        <section class="team-hero section-padding text-center">
-            <div class="container">
-                <h2 class="section-title fade-up-anim" style="margin-top: 4rem;">The Architects</h2>
-                <p class="section-desc fade-up-anim">Meet the crew behind the cosmic experience.</p>
-            </div>
-        </section>
+    <!-- TEAM -->
+    <section class="team-section section-padding text-center">
+        <div class="container">
 
-        <!-- Core Team Section -->
-        <section class="core-team section-padding pt-0 fade-up-anim">
-            <div class="container">
-                <h3 class="text-center" style="margin-bottom: 2rem; color: var(--color-primary); font-size: 2rem;">Core Team</h3>
-                <div class="team-grid core-grid">
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar">👑</div>
-                        <h4 class="member-name">Alex Voyager</h4>
-                        <p class="member-role">President</p>
-                        <p class="member-phone">+91 98765 43210</p>
+            <h2 class="section-title">CORE TEAM</h2>
+            <p class="section-desc">Meet the team of Oxenium.</p>
+
+            <div class="team-grid">
+
+                <!-- CARD -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/aryan.jpg">
                     </div>
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar">💻</div>
-                        <h4 class="member-name">Sam Nebula</h4>
-                        <p class="member-role">Vice President</p>
-                        <p class="member-phone">+91 98765 43211</p>
+                    <h3 class="team-name">Aryan Arya</h3>
+                    <p class="team-position">President Science & Technology</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/aarnav.jpg">
                     </div>
+                    <h3 class="team-name">Aarnav Garg</h3>
+                    <p class="team-position">Head Website Design</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/shivank.jpg">
+                    </div>
+                    <h3 class="team-name">Shivank Dan</h3>
+                    <p class="team-position">Head Website Design</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/girik.jpg">
+                    </div>
+                    <h3 class="team-name">Girik Kashyap</h3>
+                    <p class="team-position">Head VFX Design</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/dibyanshu.jpg">
+                    </div>
+                    <h3 class="team-name">Dibyanshu Rout</h3>
+                    <p class="team-position">Head VFX Design</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/rishit.jpg">
+                    </div>
+                    <h3 class="team-name">Rishit Jindal</h3>
+                    <p class="team-position">Event Management</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEACHER INCHARGES -->
+    <section class="teacher-section section-padding text-center">
+        <div class="container">
+
+            <h2 class="section-title">Teacher Incharges</h2>
+            <p class="section-desc">Guiding forces behind the event.</p>
+
+            <div class="teacher-grid">
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/teacher1.jpg">
+                    </div>
+                    <h3 class="team-name">Mr. Sharma</h3>
+                    <p class="team-position">HOD Computer Science</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="assets/team/teacher2.jpg">
+                    </div>
+                    <h3 class="team-name">Ms. Verma</h3>
+                    <p class="team-position">IT Coordinator</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer premium-footer glass-panel">
+        <div class="container footer-container">
+            <!-- Branding -->
+            <div class="footer-section branding">
+                <h2 class="footer-title">OXAMITE V5.0</h2>
+                <p class="footer-subtitle">OXENIUM - Encoding the Infinite</p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section contact-info">
+                <h3 class="footer-heading">Bal Bharati Public School</h3>
+                <p class="footer-text">Sector-21, Noida, Uttar Pradesh, India</p>
+                <div class="footer-emails">
+                    <a href="mailto:bbpsnd@balbharati.org" class="footer-link">bbpsnd@balbharati.org</a>
+                    <a href="mailto:oxanium@nd.balbharati.org" class="footer-link">oxanium@nd.balbharati.org</a>
                 </div>
             </div>
-        </section>
 
-        <!-- Student Incharges Section -->
-        <section class="student-team section-padding pt-0 fade-up-anim">
-            <div class="container">
-                <h3 class="text-center" style="margin-bottom: 2rem; color: var(--color-primary); font-size: 1.8rem;">Student Incharges</h3>
-                <div class="team-grid regular-grid">
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">👾</div>
-                        <h4 class="member-name sm-name">Riya Star</h4>
-                        <p class="member-role sm-role">Tech Lead</p>
-                        <p class="member-phone sm-phone">+91 91234 56780</p>
-                    </div>
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">🎨</div>
-                        <h4 class="member-name sm-name">Aryan Comet</h4>
-                        <p class="member-role sm-role">Design Lead</p>
-                        <p class="member-phone sm-phone">+91 91234 56781</p>
-                    </div>
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">📢</div>
-                        <h4 class="member-name sm-name">Neha Orbit</h4>
-                        <p class="member-role sm-role">PR Lead</p>
-                        <p class="member-phone sm-phone">+91 91234 56782</p>
-                    </div>
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">⚙️</div>
-                        <h4 class="member-name sm-name">Kabir Nova</h4>
-                        <p class="member-role sm-role">Logistics</p>
-                        <p class="member-phone sm-phone">+91 91234 56783</p>
-                    </div>
+            <!-- Social Icons -->
+            <div class="footer-section social-links">
+                <div class="footer-socials">
+                    <a href="#" class="social-btn btn-ripple" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-instagram">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-btn btn-ripple" title="Discord">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-discord">
+                            <path
+                                d="M19.7 5.4a12.8 12.8 0 0 0-3.3-1A1 1 0 0 0 15.6 5a10.6 10.6 0 0 0-1.2 2.6 13.5 13.5 0 0 0-4.8 0 10.6 10.6 0 0 0-1.2-2.6 1 1 0 0 0-.8-.6 12.8 12.8 0 0 0-3.3 1C1.2 12 2.4 19.3 2.4 19.3a1 1 0 0 0 .5.7 13.1 13.1 0 0 0 4 1.5 1 1 0 0 0 .9-.4l1.2-1.6a1 1 0 0 0-.6-1.5 9 9 0 0 1-3.6-1.5 1 1 0 0 1-.1-1.6c.2-.1.4-.3.6-.5a1 1 0 0 1 1.2-.1c2.4 1.2 5 1.2 7.4 0a1 1 0 0 1 1.2.1c.2.2.4.4.6.5a1 1 0 0 1-.1 1.6 9 9 0 0 1-3.6 1.5 1 1 0 0 0-.6 1.5l1.2 1.6a1 1 0 0 0 .9.4 13.1 13.1 0 0 0 4-1.5 1 1 0 0 0 .5-.7c0 0 1.2-7.3-1.9-13.9z">
+                            </path>
+                            <circle cx="8.5" cy="12.5" r="1.5"></circle>
+                            <circle cx="15.5" cy="12.5" r="1.5"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-btn btn-ripple" title="WhatsApp Community">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-whatsapp">
+                            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
+                            <path
+                                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1">
+                            </path>
+                        </svg>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Teacher Incharges Section -->
-        <section class="teacher-team section-padding pt-0 fade-up-anim">
-            <div class="container">
-                <h3 class="text-center" style="margin-bottom: 2rem; color: var(--color-primary); font-size: 1.8rem;">Teacher Incharges</h3>
-                <div class="team-grid regular-grid" style="justify-content: center;">
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">👨‍🏫</div>
-                        <h4 class="member-name sm-name">Mr. Sharma</h4>
-                        <p class="member-role sm-role">HOD Computer Science</p>
-                    </div>
-                    <div class="team-card glass-card tilt-card" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
-                        <div class="member-avatar sm-avatar">👩‍🏫</div>
-                        <h4 class="member-name sm-name">Ms. Verma</h4>
-                        <p class="member-role sm-role">IT Coordinator</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer glass-panel">
-        <p>&copy; 2026 OXAMITE V5.0 | Cosmic Bytes</p>
+        </div>
+        <div class="footer-bottom text-center">
+            <p class="footer-copyright">&copy; 2026 Oxamite. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
-    <script src="js/cursor.js"></script>
-    <script src="js/three-bg.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
 </body>
+
 </html>

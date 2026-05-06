@@ -862,90 +862,169 @@ ul {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   Team Page
-   ========================================================================== */
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #050505;
+  color: white;
+}
+
+/* ===== BACKGROUND FIX ===== */
+#three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 20, 35, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Orbitron';
+}
+
+.nav-links .active {
+  color: #00d4ff;
+}
+
+.logo {
+  font-family: 'Orbitron';
+  font-weight: 800;
+}
+
+.logo span {
+  color: #00d4ff;
+}
+
+/* ===== TEAM GRID FIX (3 PER ROW) ===== */
 .team-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* EXACTLY 3 */
   gap: 2rem;
-  justify-content: center;
+  margin-top: 3rem;
 }
 
-.core-grid .team-card {
-  flex: 1 1 400px;
-  max-width: 500px;
-  padding: 3rem 2rem;
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.regular-grid .team-card {
-  flex: 1 1 250px;
-  max-width: 300px;
-  padding: 2rem 1.5rem;
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* ===== TEAM CARD ===== */
 .team-card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: rgba(15, 20, 35, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.4s ease;
 }
 
-.member-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(0, 212, 255, 0.1);
-  border: 2px solid var(--color-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+.team-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.25);
 }
 
-.team-card:hover .member-avatar {
+/* IMAGE */
+.team-photo {
+  height: 220px;
+  overflow: hidden;
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.team-card:hover img {
   transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
 }
 
-.member-avatar.sm-avatar {
-  width: 90px;
-  height: 90px;
-  font-size: 3rem;
+/* TEXT */
+.team-name {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
-.member-name {
-  font-size: 1.8rem;
-  color: var(--color-white);
-  margin-bottom: 0.5rem;
-}
-
-.member-name.sm-name {
-  font-size: 1.3rem;
-}
-
-.member-role {
+.team-position {
   color: var(--color-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
 }
 
-.member-role.sm-role {
-  font-size: 0.85rem;
+/* ===== NAVBAR FIX ===== */
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
-.member-phone {
-  color: #ccc;
-  font-size: 1.1rem;
+/* ===== CANVAS FIX ===== */
+#three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-.member-phone.sm-phone {
-  font-size: 0.95rem;
+/* ===== TEACHER GRID (2 CENTERED) ===== */
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  /* fixed width */
+  justify-content: center;
+  /* center them */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* OPTIONAL: spacing between sections */
+.teacher-section {
+  margin-top: 3rem;
 }
 
 /* ==========================================================================

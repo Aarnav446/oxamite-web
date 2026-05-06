@@ -119,17 +119,17 @@ ul {
 }
 
 .cursor-dot {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   background-color: var(--color-white);
   transition: width 0.2s, height 0.2s;
 }
 
 .cursor-glow {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   border: 1px solid var(--color-primary);
-  box-shadow: 0 0 15px var(--color-primary-glow);
+  box-shadow: 0 0 10px var(--color-primary-glow);
   transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
@@ -139,8 +139,8 @@ ul {
   height: 0;
 }
 .cursor-hover .cursor-glow {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: rgba(0, 212, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
 }

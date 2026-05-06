@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const starMaterial1 = new THREE.PointsMaterial({
         size: isMobile ? 1 : 1.5,
-        color: 0x66aaff,
+        color: 0x8B5CF6, // Purple stars
         map: texture,
         transparent: true,
         opacity: 0.6,
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const starMaterial2 = new THREE.PointsMaterial({
         size: isMobile ? 2.5 : 3.5,
-        color: 0x88ccff,
+        color: 0xA855F7, // Lighter purple stars
         map: texture,
         transparent: true,
         opacity: 0.9,
@@ -83,9 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const tiles = [];
     const tileGeometry = new THREE.PlaneGeometry(50, 50);
     
-    // Create glowing material with cyan edge
+    // Create glowing material with purple edge
     const tileMaterial = new THREE.MeshBasicMaterial({
-        color: 0x00d4ff,
+        color: 0x8B5CF6, // Purple tiles
         transparent: true,
         opacity: 0.15,
         side: THREE.DoubleSide,
@@ -116,6 +116,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
         tiles.push(tile);
         scene.add(tile);
+    }
+
+    // 3.5. Floating Planets/Spheres
+    const planets = [];
+    const planetCount = isMobile ? 3 : 6;
+
+    for (let i = 0; i < planetCount; i++) {
+        // Create sphere geometry with varying sizes
+        const radius = Math.random() * 30 + 20; // 20-50 radius
+        const planetGeometry = new THREE.SphereGeometry(radius, 16, 16);
+
+        // Create materials with different colors for variety
+        const planetColors = [0x8B5CF6, 0x6366F1, 0xEC4899, 0xF59E0B, 0x10B981, 0xEF4444];
+        const planetMaterial = new THREE.MeshBasicMaterial({
+            color: planetColors[i % planetColors.length],
+            transparent: true,
+            opacity: 0.3,
+            wireframe: false // Solid planets
+        });
+
+        const planet = new THREE.Mesh(planetGeometry, planetMaterial);
+
+        // Position planets at different depths
+        planet.position.x = (Math.random() - 0.5) * 1800;
+        planet.position.y = (Math.random() - 0.5) * 1800;
+        planet.position.z = (Math.random() - 0.5) * 1000; // between -500 and 500
+
+        // Custom animation properties for planets
+        planet.userData = {
+            rotSpeedX: (Math.random() - 0.5) * 0.005,
+            rotSpeedY: (Math.random() - 0.5) * 0.005,
+            orbitSpeed: (Math.random() - 0.5) * 0.002,
+            orbitRadius: Math.random() * 200 + 100,
+            orbitCenterX: planet.position.x,
+            orbitCenterY: planet.position.y,
+            timeOffset: Math.random() * 100
+        };
+
+        planets.push(planet);
+        scene.add(planet);
     }
 
     // 4. Parallax & Mouse Interaction
@@ -163,6 +203,18 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Hover up and down
             tile.position.y = tile.userData.startY + Math.sin(elapsedTime * tile.userData.floatSpeed + tile.userData.timeOffset) * 50;
+        });
+
+        // Animate floating planets
+        planets.forEach((planet, index) => {
+            // Rotate planets on their own axis
+            planet.rotation.x += planet.userData.rotSpeedX;
+            planet.rotation.y += planet.userData.rotSpeedY;
+
+            // Create orbital motion around their center point
+            const orbitAngle = elapsedTime * planet.userData.orbitSpeed + planet.userData.timeOffset;
+            planet.position.x = planet.userData.orbitCenterX + Math.cos(orbitAngle) * planet.userData.orbitRadius;
+            planet.position.y = planet.userData.orbitCenterY + Math.sin(orbitAngle) * planet.userData.orbitRadius;
         });
 
         renderer.render(scene, camera);

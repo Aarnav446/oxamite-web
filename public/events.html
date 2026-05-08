@@ -75,7 +75,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/uGN4YxbMspWubzAG6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('Galaxy Quest', 'Participants must create a Scratch game based on the provided theme.', 'Hybrid', '1-2')">Rulebook</button>
+                                onclick="openModal('Galaxy Quest', 'Participants must create a Scratch game based on the provided theme.', 'Hybrid', '1-2', 'https://forms.gle/uGN4YxbMspWubzAG6')">Rulebook</button>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/jt7hKtAiY5FwMmTB8" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('Nova Imprints', 'Design a digital poster based on the problem provided and submit it for evaluation.', 'Online', '1-2')">Rulebook</button>
+                                onclick="openModal('Nova Imprints', 'Design a digital poster based on the problem provided and submit it for evaluation.', 'Online', '1-2', 'https://forms.gle/jt7hKtAiY5FwMmTB8')">Rulebook</button>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/R523YeZfh1JGtur29" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('AppForge', 'Design and build a creative, functional mobile or web app based on a given problem statement. Participants must use MIT App Inventor and THUNKABLE. AI Tools are strictly not allowed.', 'Online', '1-2')">Rulebook</button>
+                                onclick="openModal('AppForge', 'Design and build a creative, functional mobile or web app based on a given problem statement. Participants must use MIT App Inventor and THUNKABLE. AI Tools are strictly not allowed.', 'Online', '1-2', 'https://forms.gle/R523YeZfh1JGtur29')">Rulebook</button>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/e7kTc8cEMohDphpa9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('Cosmic Cuts', 'Participants are required to edit a compelling and creative video based on a given problem statement inspired by the theme Space. The edit should reflect storytelling, originality, and technical skill — integrating cinematic elements to bring a space narrative to life.', 'Online', '1')">Rulebook</button>
+                                onclick="openModal('Cosmic Cuts', 'Participants are required to edit a compelling and creative video based on a given problem statement inspired by the theme Space. The edit should reflect storytelling, originality, and technical skill — integrating cinematic elements to bring a space narrative to life.', 'Online', '1', 'https://forms.gle/e7kTc8cEMohDphpa9')">Rulebook</button>
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/YzGHfKY56VHhsHRB9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('Errorite', 'Identify, analyze, and fix errors in given Python programs. Participants must demonstrate strong logical thinking, debugging skills, and a clear understanding of Python concepts. The focus is on accuracy, efficiency, and clean problem-solving approaches.', 'Hybrid', '1-2')">Rulebook</button>
+                                onclick="openModal('Errorite', 'Identify, analyze, and fix errors in given Python programs. Participants must demonstrate strong logical thinking, debugging skills, and a clear understanding of Python concepts. The focus is on accuracy, efficiency, and clean problem-solving approaches.', 'Hybrid', '1-2', 'https://forms.gle/YzGHfKY56VHhsHRB9')">Rulebook</button>
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@
                         <div class="event-actions">
                             <a href="https://forms.gle/ua1EpLKpd3NjzwM27" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-ripple">Register</a>
                             <button class="btn btn-secondary btn-sm btn-ripple"
-                                onclick="openModal('DevSpace', 'Teams are required to build a functional project or prototype based on a given problem statement inspired by the theme Space. The submission should reflect innovation, technical execution, and problem-solving — combining creativity with working code.', 'Hybrid', '2–3')">Rulebook</button>
+                                onclick="openModal('DevSpace', 'Teams are required to build a functional project or prototype based on a given problem statement inspired by the theme Space. The submission should reflect innovation, technical execution, and problem-solving — combining creativity with working code.', 'Hybrid', '2–3', 'https://forms.gle/ua1EpLKpd3NjzwM27')">Rulebook</button>
                         </div>
                     </div>
 
@@ -236,7 +236,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button class="btn btn-primary btn-ripple">Register Now</button>
+                    <a id="modal-register" class="btn btn-primary btn-ripple" target="_blank" rel="noopener noreferrer">Register Now</a>
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@
             <!-- Branding -->
             <div class="footer-section branding">
                 <h2 class="footer-title">OXAMITE V5.0</h2>
-                <p class="footer-subtitle">Cosmic Bytes — Encoding the Infinite</p>
+                <p class="footer-subtitle">OXANIUM - Encoding the Infinite</p>
             </div>
 
             <!-- Contact Info -->
@@ -292,11 +292,21 @@
     <script src="js/main.js"></script>
     <script>
         // Modal Logic
-        function openModal(title, rules, mode, teamSize) {
+        function openModal(title, rules, mode, teamSize, registerURL) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-rules').innerText = rules;
             document.getElementById('modal-mode').innerText = mode;
             document.getElementById('modal-team').innerText = teamSize;
+
+            const registerLink = document.getElementById('modal-register');
+            registerLink.href = registerURL || '#';
+            if (registerURL) {
+                registerLink.classList.remove('disabled');
+                registerLink.setAttribute('target', '_blank');
+                registerLink.setAttribute('rel', 'noopener noreferrer');
+            } else {
+                registerLink.classList.add('disabled');
+            }
 
             const modal = document.getElementById('event-modal');
             modal.classList.add('active');

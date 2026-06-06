@@ -405,7 +405,7 @@ body {
   filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4));
 }
 
-.school-logo:hover {
+.logo-strip:hover .school-logo {
   transform: scale(1.05);
   filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.8));
 }
@@ -969,14 +969,19 @@ body {
 
 /* IMAGE */
 .team-photo {
-  height: 220px;
+  height: 280px;
   overflow: hidden;
+  position: relative;
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .team-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
   transition: 0.4s;
 }
 
